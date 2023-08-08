@@ -1,0 +1,85 @@
+﻿@model WebOrganicFood.Models.DonHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DonHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDung.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDung.HoTen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhToan)
+        </dt>
+
+        <dd>
+            @{
+                if (Model.ThanhToan == 1)
+                {
+                    <div style="color:red">Thanh toán tiền mặt</div>
+                }
+                else if (Model.ThanhToan == 2)
+                {
+                    <div style="color:slateblue">Thanh toán chuyển khoản</div>
+
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+        </dt>
+
+        <dd>
+            @{
+                if (Model.TinhTrangGiaoHang == 0)
+                {
+                    <div style="color:red">Đang chờ xác nhận</div>
+                }
+                else if (Model.TinhTrangGiaoHang == 1)
+                {
+
+
+                    <div style="color:slateblue">Đã xác nhận</div>
+
+                }
+                else
+                {
+                    <div style="color:red">Đang chờ xác nhận</div>
+
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiNhanHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiNhanHang)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Xác Nhận Đơn Hàng", "Xacnhan", new { id= Model.MaDonHang }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

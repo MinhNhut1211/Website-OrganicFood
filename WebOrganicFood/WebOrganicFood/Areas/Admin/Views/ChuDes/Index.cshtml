@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebOrganicFood.Models.Loai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhAnh)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDLoai }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IDLoai }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDLoai })
+        </td>
+    </tr>
+}
+
+</table>

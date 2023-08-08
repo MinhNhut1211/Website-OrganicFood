@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using WebOrganicFood.Models;
+@model List<Loai>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+@{
+    foreach (var item in Model)
+    {
+        <li>
+            <a href="@Url.Action("LoaiChuDe", "ChuDe", new { @maloai = item.IDLoai })">@item.TenLoai</a>
+        </li>
+    }
+}
+
+
+
+
